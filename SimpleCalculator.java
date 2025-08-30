@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class SimpleCalculator {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true; // Control variable for loop
@@ -23,14 +22,13 @@ public class SimpleCalculator {
             System.out.println("2. Subtraction (-)");
             System.out.println("3. Multiplication (*)");
             System.out.println("4. Division (/)");
-            System.out.println("5. Exit");
 
-            System.out.print("Enter choice (1/2/3/4/5): ");
+            System.out.print("Enter choice (1/2/3/4): ");
             int choice = scanner.nextInt();
 
             double result;
 
-            // Use switch-case to perform the operation
+            // Perform calculation
             switch (choice) {
                 case 1:
                     result = num1 + num2;
@@ -56,14 +54,17 @@ public class SimpleCalculator {
                     }
                     break;
 
-                case 5:
-                    System.out.println("Exiting calculator. Goodbye!");
-                    running = false; // End the loop
-                    break;
-
                 default:
                     System.out.println("Invalid input. Please select a valid operation.");
                     break;
+            }
+
+            // Ask if user wants to continue
+            System.out.print("\nDo you want to perform another calculation? (yes/no): ");
+            String response = scanner.next().trim().toLowerCase();
+            if (response.equals("no") || response.equals("n")) {
+                running = false;
+                System.out.println("Exiting calculator. Goodbye!");
             }
 
             System.out.println(); // Blank line for readability
@@ -72,4 +73,3 @@ public class SimpleCalculator {
         scanner.close();
     }
 }
-
